@@ -2,7 +2,7 @@
 # Base Image
 ########################################################################################################################
 # Core Config
-ARG alpine_tag=3.19.0
+ARG alpine_tag=3.19.1
 ARG repo_tag=v3.10
 
 # Ports:
@@ -13,6 +13,7 @@ ARG ports='3333 37888 37889'
 
 # Defaults
 ARG build_dir=/tmp/build
+ARG license=$build_dir/source/LICENSE
 ARG dist_dir=$build_dir/dist
 ARG install_dir=/usr/local/bin
 ARG uid=10000
@@ -52,7 +53,7 @@ RUN cp p2pool $dist_dir/
 # Final Image
 ########################################################################################################################
 FROM base as final
-ARG dist_dir install_dir ports uid user
+ARG dist_dir install_dir license ports uid user
 
 WORKDIR /home/p2pool
 
@@ -63,7 +64,8 @@ RUN apk add --no-cache $runtime_packages
 
 # Install binaries
 RUN mkdir -p "$install_dir"
-COPY --from=build $dist_dir $install_dir
+COPY --from=build $dist_dir                 $install_dir
+COPY --from=build $license /usr/share/licenses/p2pool/
 
 # Environment variables, overridable from container
 ENV P2POOL_ADD_PEERS=

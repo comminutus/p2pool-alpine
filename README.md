@@ -1,5 +1,5 @@
 # p2pool-alpine
-[![License](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](https://opensource.org/licenses/GPL-3.0)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.html)
 [![CI](https://github.com/comminutus/p2pool-alpine/actions/workflows/ci.yaml/badge.svg)](https://github.com/comminutus/p2pool-alpine/actions/workflows/ci.yaml)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/comminutus/p2pool-alpine)](https://github.com/comminutus/p2pool-alpine/releases/latest)
 
@@ -64,5 +64,17 @@ The container exposes the following ports:
 | 37888 | p2pool peer-to-peer communications      |
 | 37889 | p2pool mini peer-to-peer communications |
 
+## Dependencies
+| Name                                         | Version   |
+| -------------------------------------------- | --------- |
+| [Alpine Linux](https://www.alpinelinux.org/) | v3.19.1   |
+| [p2pool](https://github.com/p2pool/p2pool)   | v3.10.0   |
+
+
 ## License
-This project inherits p2pool's GPL-3.0 license - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+
+This container image includes a compiled [p2pool](https://github.com/p2pool/p2pool) binary, which is distributed under
+the terms of the GNU General Public License version 3 (GPLv3). The corresponding source code can be obtained
+[here](https://github.com/p2pool/p2pool).
+
